@@ -1,0 +1,9 @@
+{
+    "title": "Simple Example with Math and Plots",
+    "description": "This example demonstrates KaTeX rendering and matplotlib plots side by side",
+    "data": {
+        "x": [1, 2, 3, 4, 5],
+        "y1": [1, 4, 9, 16, 25],
+        "y2": [1, 8, 27, 64, 125]
+    }
+}

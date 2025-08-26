@@ -1,0 +1,1045 @@
+[
+  {
+    "hospitalID": 10078,
+    "num_pcdp_days": 29,
+    "avg_days_before_death": 170.9655172413793,
+    "pcd_type": "PM",
+    "fep": false
+  },
+  {
+    "hospitalID": 30002,
+    "num_pcdp_days": 2,
+    "avg_days_before_death": 186.5,
+    "pcd_type": "WM",
+    "fep": true
+  },
+  {
+    "hospitalID": 30006,
+    "num_pcdp_days": 1,
+    "avg_days_before_death": 196.0,
+    "pcd_type": "PM",
+    "fep": false
+  },
+  {
+    "hospitalID": 30024,
+    "num_pcdp_days": 4,
+    "avg_days_before_death": 192.25,
+    "pcd_type": "WM",
+    "fep": false
+  },
+  {
+    "hospitalID": 30064,
+    "num_pcdp_days": 1,
+    "avg_days_before_death": 191.0,
+    "pcd_type": "WM",
+    "fep": false
+  },
+  {
+    "hospitalID": 30119,
+    "num_pcdp_days": 5,
+    "avg_days_before_death": 190.0,
+    "pcd_type": "WM",
+    "fep": false
+  },
+  {
+    "hospitalID": 40020,
+    "num_pcdp_days": 63,
+    "avg_days_before_death": 152.6984126984127,
+    "pcd_type": "PM",
+    "fep": false
+  },
+  {
+    "hospitalID": 50017,
+    "num_pcdp_days": 1,
+    "avg_days_before_death": 197.0,
+    "pcd_type": "WM",
+    "fep": false
+  },
+  {
+    "hospitalID": 50026,
+    "num_pcdp_days": 5,
+    "avg_days_before_death": 183.0,
+    "pcd_type": "WM",
+    "fep": true
+  },
+  {
+    "hospitalID": 50038,
+    "num_pcdp_days": 7,
+    "avg_days_before_death": 195.42857142857142,
+    "pcd_type": "PM",
+    "fep": true
+  },
+  {
+    "hospitalID": 50124,
+    "num_pcdp_days": 2,
+    "avg_days_before_death": 194.5,
+    "pcd_type": "PM",
+    "fep": false
+  },
+  {
+    "hospitalID": 50159,
+    "num_pcdp_days": 1,
+    "avg_days_before_death": 200.0,
+    "pcd_type": "PM",
+    "fep": true
+  },
+  {
+    "hospitalID": 50238,
+    "num_pcdp_days": 1,
+    "avg_days_before_death": 178.0,
+    "pcd_type": "PM",
+    "fep": false
+  },
+  {
+    "hospitalID": 50239,
+    "num_pcdp_days": 6,
+    "avg_days_before_death": 93.5,
+    "pcd_type": "PM",
+    "fep": false
+  },
+  {
+    "hospitalID": 50289,
+    "num_pcdp_days": 17,
+    "avg_days_before_death": 151.2941176470588,
+    "pcd_type": "WM",
+    "fep": false
+  },
+  {
+    "hospitalID": 50295,
+    "num_pcdp_days": 7,
+    "avg_days_before_death": 189.14285714285714,
+    "pcd_type": "PM",
+    "fep": false
+  },
+  {
+    "hospitalID": 50324,
+    "num_pcdp_days": 9,
+    "avg_days_before_death": 42.0,
+    "pcd_type": "PM",
+    "fep": false
+  },
+  {
+    "hospitalID": 50348,
+    "num_pcdp_days": 1,
+    "avg_days_before_death": 147.0,
+    "pcd_type": "PM",
+    "fep": false
+  },
+  {
+    "hospitalID": 50424,
+    "num_pcdp_days": 16,
+    "avg_days_before_death": 184.625,
+    "pcd_type": "WM",
+    "fep": false
+  },
+  {
+    "hospitalID": 50481,
+    "num_pcdp_days": 28,
+    "avg_days_before_death": 144.67857142857142,
+    "pcd_type": "PM",
+    "fep": false
+  },
+  {
+    "hospitalID": 50496,
+    "num_pcdp_days": 9,
+    "avg_days_before_death": 192.88888888888889,
+    "pcd_type": "WM",
+    "fep": true
+  },
+  {
+    "hospitalID": 50624,
+    "num_pcdp_days": 1,
+    "avg_days_before_death": 193.0,
+    "pcd_type": "WM",
+    "fep": false
+  },
+  {
+    "hospitalID": 50660,
+    "num_pcdp_days": 12,
+    "avg_days_before_death": 194.5,
+    "pcd_type": "PM",
+    "fep": true
+  },
+  {
+    "hospitalID": 50678,
+    "num_pcdp_days": 9,
+    "avg_days_before_death": 196.0,
+    "pcd_type": "WM",
+    "fep": true
+  },
+  {
+    "hospitalID": 50696,
+    "num_pcdp_days": 1,
+    "avg_days_before_death": 200.0,
+    "pcd_type": "WM",
+    "fep": true
+  },
+  {
+    "hospitalID": 70016,
+    "num_pcdp_days": 50,
+    "avg_days_before_death": 161.7,
+    "pcd_type": "PM",
+    "fep": false
+  },
+  {
+    "hospitalID": 90011,
+    "num_pcdp_days": 6,
+    "avg_days_before_death": 193.83333333333334,
+    "pcd_type": "PM",
+    "fep": true
+  },
+  {
+    "hospitalID": 100008,
+    "num_pcdp_days": 11,
+    "avg_days_before_death": 194.0,
+    "pcd_type": "PM",
+    "fep": true
+  },
+  {
+    "hospitalID": 100012,
+    "num_pcdp_days": 2,
+    "avg_days_before_death": 199.5,
+    "pcd_type": "WM",
+    "fep": true
+  },
+  {
+    "hospitalID": 100019,
+    "num_pcdp_days": 35,
+    "avg_days_before_death": 160.34285714285716,
+    "pcd_type": "PM",
+    "fep": false
+  },
+  {
+    "hospitalID": 100026,
+    "num_pcdp_days": 2,
+    "avg_days_before_death": 194.5,
+    "pcd_type": "WM",
+    "fep": false
+  },
+  {
+    "hospitalID": 100044,
+    "num_pcdp_days": 5,
+    "avg_days_before_death": 180.0,
+    "pcd_type": "WM",
+    "fep": false
+  },
+  {
+    "hospitalID": 100072,
+    "num_pcdp_days": 2,
+    "avg_days_before_death": 195.5,
+    "pcd_type": "WM",
+    "fep": false
+  },
+  {
+    "hospitalID": 100088,
+    "num_pcdp_days": 2,
+    "avg_days_before_death": 195.5,
+    "pcd_type": "WM",
+    "fep": true
+  },
+  {
+    "hospitalID": 100154,
+    "num_pcdp_days": 1,
+    "avg_days_before_death": 192.0,
+    "pcd_type": "WM",
+    "fep": false
+  },
+  {
+    "hospitalID": 100157,
+    "num_pcdp_days": 18,
+    "avg_days_before_death": 172.05555555555554,
+    "pcd_type": "PM",
+    "fep": false
+  },
+  {
+    "hospitalID": 100269,
+    "num_pcdp_days": 3,
+    "avg_days_before_death": 141.0,
+    "pcd_type": "PM",
+    "fep": false
+  },
+  {
+    "hospitalID": 100296,
+    "num_pcdp_days": 1,
+    "avg_days_before_death": 194.0,
+    "pcd_type": "PM",
+    "fep": false
+  },
+  {
+    "hospitalID": 110007,
+    "num_pcdp_days": 1,
+    "avg_days_before_death": 183.0,
+    "pcd_type": "WM",
+    "fep": false
+  },
+  {
+    "hospitalID": 110029,
+    "num_pcdp_days": 1,
+    "avg_days_before_death": 200.0,
+    "pcd_type": "WM",
+    "fep": true
+  },
+  {
+    "hospitalID": 110036,
+    "num_pcdp_days": 8,
+    "avg_days_before_death": 190.25,
+    "pcd_type": "PM",
+    "fep": false
+  },
+  {
+    "hospitalID": 110069,
+    "num_pcdp_days": 148,
+    "avg_days_before_death": 112.02702702702703,
+    "pcd_type": "PM",
+    "fep": false
+  },
+  {
+    "hospitalID": 110078,
+    "num_pcdp_days": 3,
+    "avg_days_before_death": 196.0,
+    "pcd_type": "WM",
+    "fep": false
+  },
+  {
+    "hospitalID": 110091,
+    "num_pcdp_days": 2,
+    "avg_days_before_death": 199.5,
+    "pcd_type": "WM",
+    "fep": true
+  },
+  {
+    "hospitalID": 110233,
+    "num_pcdp_days": 3,
+    "avg_days_before_death": 195.0,
+    "pcd_type": "PM",
+    "fep": true
+  },
+  {
+    "hospitalID": 140067,
+    "num_pcdp_days": 1,
+    "avg_days_before_death": 163.0,
+    "pcd_type": "PM",
+    "fep": false
+  },
+  {
+    "hospitalID": 140091,
+    "num_pcdp_days": 27,
+    "avg_days_before_death": 181.77777777777777,
+    "pcd_type": "PM",
+    "fep": false
+  },
+  {
+    "hospitalID": 140118,
+    "num_pcdp_days": 3,
+    "avg_days_before_death": 199.0,
+    "pcd_type": "WM",
+    "fep": true
+  },
+  {
+    "hospitalID": 140250,
+    "num_pcdp_days": 3,
+    "avg_days_before_death": 198.0,
+    "pcd_type": "PM",
+    "fep": false
+  },
+  {
+    "hospitalID": 140252,
+    "num_pcdp_days": 3,
+    "avg_days_before_death": 199.0,
+    "pcd_type": "PM",
+    "fep": true
+  },
+  {
+    "hospitalID": 140276,
+    "num_pcdp_days": 2,
+    "avg_days_before_death": 167.5,
+    "pcd_type": "PM",
+    "fep": false
+  },
+  {
+    "hospitalID": 150008,
+    "num_pcdp_days": 1,
+    "avg_days_before_death": 191.0,
+    "pcd_type": "WM",
+    "fep": false
+  },
+  {
+    "hospitalID": 150169,
+    "num_pcdp_days": 4,
+    "avg_days_before_death": 178.5,
+    "pcd_type": "WM",
+    "fep": false
+  },
+  {
+    "hospitalID": 160033,
+    "num_pcdp_days": 1,
+    "avg_days_before_death": 197.0,
+    "pcd_type": "PM",
+    "fep": false
+  },
+  {
+    "hospitalID": 160058,
+    "num_pcdp_days": 8,
+    "avg_days_before_death": 196.5,
+    "pcd_type": "WM",
+    "fep": true
+  },
+  {
+    "hospitalID": 160083,
+    "num_pcdp_days": 3,
+    "avg_days_before_death": 190.0,
+    "pcd_type": "PM",
+    "fep": false
+  },
+  {
+    "hospitalID": 170040,
+    "num_pcdp_days": 8,
+    "avg_days_before_death": 186.0,
+    "pcd_type": "PM",
+    "fep": false
+  },
+  {
+    "hospitalID": 180010,
+    "num_pcdp_days": 1,
+    "avg_days_before_death": 197.0,
+    "pcd_type": "WM",
+    "fep": false
+  },
+  {
+    "hospitalID": 180040,
+    "num_pcdp_days": 6,
+    "avg_days_before_death": 189.66666666666666,
+    "pcd_type": "PM",
+    "fep": false
+  },
+  {
+    "hospitalID": 180130,
+    "num_pcdp_days": 5,
+    "avg_days_before_death": 181.0,
+    "pcd_type": "WM",
+    "fep": false
+  },
+  {
+    "hospitalID": 180141,
+    "num_pcdp_days": 3,
+    "avg_days_before_death": 191.0,
+    "pcd_type": "WM",
+    "fep": false
+  },
+  {
+    "hospitalID": 190019,
+    "num_pcdp_days": 1,
+    "avg_days_before_death": 188.0,
+    "pcd_type": "PM",
+    "fep": false
+  },
+  {
+    "hospitalID": 190027,
+    "num_pcdp_days": 8,
+    "avg_days_before_death": 189.125,
+    "pcd_type": "WM",
+    "fep": false
+  },
+  {
+    "hospitalID": 190045,
+    "num_pcdp_days": 4,
+    "avg_days_before_death": 194.5,
+    "pcd_type": "PM",
+    "fep": false
+  },
+  {
+    "hospitalID": 190098,
+    "num_pcdp_days": 14,
+    "avg_days_before_death": 154.5,
+    "pcd_type": "PM",
+    "fep": false
+  },
+  {
+    "hospitalID": 190176,
+    "num_pcdp_days": 58,
+    "avg_days_before_death": 151.74137931034483,
+    "pcd_type": "PM",
+    "fep": true
+  },
+  {
+    "hospitalID": 210008,
+    "num_pcdp_days": 4,
+    "avg_days_before_death": 191.5,
+    "pcd_type": "PM",
+    "fep": false
+  },
+  {
+    "hospitalID": 210018,
+    "num_pcdp_days": 8,
+    "avg_days_before_death": 186.5,
+    "pcd_type": "WM",
+    "fep": false
+  },
+  {
+    "hospitalID": 210023,
+    "num_pcdp_days": 17,
+    "avg_days_before_death": 176.7058823529412,
+    "pcd_type": "PM",
+    "fep": false
+  },
+  {
+    "hospitalID": 210056,
+    "num_pcdp_days": 12,
+    "avg_days_before_death": 193.33333333333334,
+    "pcd_type": "PM",
+    "fep": true
+  },
+  {
+    "hospitalID": 220031,
+    "num_pcdp_days": 28,
+    "avg_days_before_death": 182.75,
+    "pcd_type": "PM",
+    "fep": false
+  },
+  {
+    "hospitalID": 220163,
+    "num_pcdp_days": 31,
+    "avg_days_before_death": 128.51612903225808,
+    "pcd_type": "PM",
+    "fep": false
+  },
+  {
+    "hospitalID": 230142,
+    "num_pcdp_days": 35,
+    "avg_days_before_death": 175.0,
+    "pcd_type": "PM",
+    "fep": false
+  },
+  {
+    "hospitalID": 230195,
+    "num_pcdp_days": 2,
+    "avg_days_before_death": 199.5,
+    "pcd_type": "WM",
+    "fep": true
+  },
+  {
+    "hospitalID": 240010,
+    "num_pcdp_days": 8,
+    "avg_days_before_death": 166.5,
+    "pcd_type": "PM",
+    "fep": false
+  },
+  {
+    "hospitalID": 250141,
+    "num_pcdp_days": 1,
+    "avg_days_before_death": 200.0,
+    "pcd_type": "WM",
+    "fep": true
+  },
+  {
+    "hospitalID": 260027,
+    "num_pcdp_days": 4,
+    "avg_days_before_death": 198.5,
+    "pcd_type": "WM",
+    "fep": true
+  },
+  {
+    "hospitalID": 260138,
+    "num_pcdp_days": 1,
+    "avg_days_before_death": 200.0,
+    "pcd_type": "WM",
+    "fep": true
+  },
+  {
+    "hospitalID": 280081,
+    "num_pcdp_days": 15,
+    "avg_days_before_death": 167.2,
+    "pcd_type": "PM",
+    "fep": false
+  },
+  {
+    "hospitalID": 310009,
+    "num_pcdp_days": 1,
+    "avg_days_before_death": 200.0,
+    "pcd_type": "WM",
+    "fep": true
+  },
+  {
+    "hospitalID": 310010,
+    "num_pcdp_days": 13,
+    "avg_days_before_death": 170.53846153846155,
+    "pcd_type": "PM",
+    "fep": false
+  },
+  {
+    "hospitalID": 310019,
+    "num_pcdp_days": 1,
+    "avg_days_before_death": 196.0,
+    "pcd_type": "WM",
+    "fep": false
+  },
+  {
+    "hospitalID": 310029,
+    "num_pcdp_days": 22,
+    "avg_days_before_death": 181.5,
+    "pcd_type": "PM",
+    "fep": false
+  },
+  {
+    "hospitalID": 310054,
+    "num_pcdp_days": 13,
+    "avg_days_before_death": 193.23076923076923,
+    "pcd_type": "PM",
+    "fep": true
+  },
+  {
+    "hospitalID": 320009,
+    "num_pcdp_days": 1,
+    "avg_days_before_death": 149.0,
+    "pcd_type": "PM",
+    "fep": false
+  },
+  {
+    "hospitalID": 330014,
+    "num_pcdp_days": 2,
+    "avg_days_before_death": 186.5,
+    "pcd_type": "PM",
+    "fep": false
+  },
+  {
+    "hospitalID": 330057,
+    "num_pcdp_days": 1,
+    "avg_days_before_death": 197.0,
+    "pcd_type": "WM",
+    "fep": false
+  },
+  {
+    "hospitalID": 330106,
+    "num_pcdp_days": 5,
+    "avg_days_before_death": 187.2,
+    "pcd_type": "PM",
+    "fep": false
+  },
+  {
+    "hospitalID": 330125,
+    "num_pcdp_days": 28,
+    "avg_days_before_death": 179.57142857142858,
+    "pcd_type": "PM",
+    "fep": false
+  },
+  {
+    "hospitalID": 330126,
+    "num_pcdp_days": 3,
+    "avg_days_before_death": 197.33333333333334,
+    "pcd_type": "WM",
+    "fep": false
+  },
+  {
+    "hospitalID": 330234,
+    "num_pcdp_days": 1,
+    "avg_days_before_death": 200.0,
+    "pcd_type": "WM",
+    "fep": true
+  },
+  {
+    "hospitalID": 330236,
+    "num_pcdp_days": 1,
+    "avg_days_before_death": 200.0,
+    "pcd_type": "WM",
+    "fep": true
+  },
+  {
+    "hospitalID": 330304,
+    "num_pcdp_days": 1,
+    "avg_days_before_death": 200.0,
+    "pcd_type": "WM",
+    "fep": true
+  },
+  {
+    "hospitalID": 330401,
+    "num_pcdp_days": 4,
+    "avg_days_before_death": 193.5,
+    "pcd_type": "WM",
+    "fep": false
+  },
+  {
+    "hospitalID": 340001,
+    "num_pcdp_days": 34,
+    "avg_days_before_death": 136.94117647058823,
+    "pcd_type": "PM",
+    "fep": false
+  },
+  {
+    "hospitalID": 340028,
+    "num_pcdp_days": 2,
+    "avg_days_before_death": 188.5,
+    "pcd_type": "WM",
+    "fep": false
+  },
+  {
+    "hospitalID": 340032,
+    "num_pcdp_days": 8,
+    "avg_days_before_death": 193.5,
+    "pcd_type": "PM",
+    "fep": false
+  },
+  {
+    "hospitalID": 340053,
+    "num_pcdp_days": 13,
+    "avg_days_before_death": 143.53846153846155,
+    "pcd_type": "WM",
+    "fep": false
+  },
+  {
+    "hospitalID": 340090,
+    "num_pcdp_days": 3,
+    "avg_days_before_death": 199.0,
+    "pcd_type": "WM",
+    "fep": true
+  },
+  {
+    "hospitalID": 340091,
+    "num_pcdp_days": 10,
+    "avg_days_before_death": 194.5,
+    "pcd_type": "PM",
+    "fep": true
+  },
+  {
+    "hospitalID": 340114,
+    "num_pcdp_days": 10,
+    "avg_days_before_death": 195.5,
+    "pcd_type": "WM",
+    "fep": true
+  },
+  {
+    "hospitalID": 340126,
+    "num_pcdp_days": 2,
+    "avg_days_before_death": 199.5,
+    "pcd_type": "WM",
+    "fep": true
+  },
+  {
+    "hospitalID": 340132,
+    "num_pcdp_days": 11,
+    "avg_days_before_death": 168.8181818181818,
+    "pcd_type": "WM",
+    "fep": true
+  },
+  {
+    "hospitalID": 340151,
+    "num_pcdp_days": 27,
+    "avg_days_before_death": 146.0,
+    "pcd_type": "PM",
+    "fep": false
+  },
+  {
+    "hospitalID": 360017,
+    "num_pcdp_days": 1,
+    "avg_days_before_death": 194.0,
+    "pcd_type": "PM",
+    "fep": false
+  },
+  {
+    "hospitalID": 360051,
+    "num_pcdp_days": 15,
+    "avg_days_before_death": 177.93333333333334,
+    "pcd_type": "PM",
+    "fep": false
+  },
+  {
+    "hospitalID": 360064,
+    "num_pcdp_days": 7,
+    "avg_days_before_death": 137.0,
+    "pcd_type": "PM",
+    "fep": false
+  },
+  {
+    "hospitalID": 360180,
+    "num_pcdp_days": 1,
+    "avg_days_before_death": 200.0,
+    "pcd_type": "WM",
+    "fep": true
+  },
+  {
+    "hospitalID": 370047,
+    "num_pcdp_days": 16,
+    "avg_days_before_death": 186.75,
+    "pcd_type": "PM",
+    "fep": false
+  },
+  {
+    "hospitalID": 380051,
+    "num_pcdp_days": 34,
+    "avg_days_before_death": 178.5,
+    "pcd_type": "PM",
+    "fep": false
+  },
+  {
+    "hospitalID": 390067,
+    "num_pcdp_days": 2,
+    "avg_days_before_death": 171.5,
+    "pcd_type": "WM",
+    "fep": false
+  },
+  {
+    "hospitalID": 390111,
+    "num_pcdp_days": 20,
+    "avg_days_before_death": 179.6,
+    "pcd_type": "PM",
+    "fep": false
+  },
+  {
+    "hospitalID": 390164,
+    "num_pcdp_days": 8,
+    "avg_days_before_death": 170.75,
+    "pcd_type": "PM",
+    "fep": false
+  },
+  {
+    "hospitalID": 390201,
+    "num_pcdp_days": 36,
+    "avg_days_before_death": 159.97222222222223,
+    "pcd_type": "PM",
+    "fep": false
+  },
+  {
+    "hospitalID": 390256,
+    "num_pcdp_days": 3,
+    "avg_days_before_death": 198.33333333333334,
+    "pcd_type": "PM",
+    "fep": true
+  },
+  {
+    "hospitalID": 390290,
+    "num_pcdp_days": 1,
+    "avg_days_before_death": 193.0,
+    "pcd_type": "PM",
+    "fep": false
+  },
+  {
+    "hospitalID": 410007,
+    "num_pcdp_days": 8,
+    "avg_days_before_death": 158.5,
+    "pcd_type": "PM",
+    "fep": false
+  },
+  {
+    "hospitalID": 420002,
+    "num_pcdp_days": 1,
+    "avg_days_before_death": 197.0,
+    "pcd_type": "WM",
+    "fep": false
+  },
+  {
+    "hospitalID": 420027,
+    "num_pcdp_days": 1,
+    "avg_days_before_death": 200.0,
+    "pcd_type": "WM",
+    "fep": true
+  },
+  {
+    "hospitalID": 420068,
+    "num_pcdp_days": 6,
+    "avg_days_before_death": 178.33333333333334,
+    "pcd_type": "PM",
+    "fep": false
+  },
+  {
+    "hospitalID": 420073,
+    "num_pcdp_days": 3,
+    "avg_days_before_death": 179.0,
+    "pcd_type": "WM",
+    "fep": false
+  },
+  {
+    "hospitalID": 420078,
+    "num_pcdp_days": 5,
+    "avg_days_before_death": 155.0,
+    "pcd_type": "PM",
+    "fep": false
+  },
+  {
+    "hospitalID": 420079,
+    "num_pcdp_days": 2,
+    "avg_days_before_death": 199.5,
+    "pcd_type": "WM",
+    "fep": true
+  },
+  {
+    "hospitalID": 420085,
+    "num_pcdp_days": 1,
+    "avg_days_before_death": 195.0,
+    "pcd_type": "WM",
+    "fep": false
+  },
+  {
+    "hospitalID": 430077,
+    "num_pcdp_days": 4,
+    "avg_days_before_death": 177.5,
+    "pcd_type": "WM",
+    "fep": false
+  },
+  {
+    "hospitalID": 440015,
+    "num_pcdp_days": 3,
+    "avg_days_before_death": 196.33333333333334,
+    "pcd_type": "WM",
+    "fep": false
+  },
+  {
+    "hospitalID": 440104,
+    "num_pcdp_days": 40,
+    "avg_days_before_death": 167.5,
+    "pcd_type": "PM",
+    "fep": false
+  },
+  {
+    "hospitalID": 450015,
+    "num_pcdp_days": 2,
+    "avg_days_before_death": 190.5,
+    "pcd_type": "PM",
+    "fep": false
+  },
+  {
+    "hospitalID": 450037,
+    "num_pcdp_days": 3,
+    "avg_days_before_death": 199.0,
+    "pcd_type": "WM",
+    "fep": true
+  },
+  {
+    "hospitalID": 450040,
+    "num_pcdp_days": 3,
+    "avg_days_before_death": 170.33333333333334,
+    "pcd_type": "PM",
+    "fep": false
+  },
+  {
+    "hospitalID": 450042,
+    "num_pcdp_days": 40,
+    "avg_days_before_death": 117.55,
+    "pcd_type": "PM",
+    "fep": false
+  },
+  {
+    "hospitalID": 450044,
+    "num_pcdp_days": 4,
+    "avg_days_before_death": 197.0,
+    "pcd_type": "WM",
+    "fep": true
+  },
+  {
+    "hospitalID": 450107,
+    "num_pcdp_days": 2,
+    "avg_days_before_death": 198.5,
+    "pcd_type": "WM",
+    "fep": false
+  },
+  {
+    "hospitalID": 450119,
+    "num_pcdp_days": 6,
+    "avg_days_before_death": 187.5,
+    "pcd_type": "PM",
+    "fep": false
+  },
+  {
+    "hospitalID": 450222,
+    "num_pcdp_days": 9,
+    "avg_days_before_death": 195.11111111111111,
+    "pcd_type": "WM",
+    "fep": true
+  },
+  {
+    "hospitalID": 450231,
+    "num_pcdp_days": 11,
+    "avg_days_before_death": 159.9090909090909,
+    "pcd_type": "PM",
+    "fep": false
+  },
+  {
+    "hospitalID": 450675,
+    "num_pcdp_days": 1,
+    "avg_days_before_death": 200.0,
+    "pcd_type": "WM",
+    "fep": false
+  },
+  {
+    "hospitalID": 450844,
+    "num_pcdp_days": 5,
+    "avg_days_before_death": 196.8,
+    "pcd_type": "WM",
+    "fep": false
+  },
+  {
+    "hospitalID": 450862,
+    "num_pcdp_days": 11,
+    "avg_days_before_death": 192.27272727272728,
+    "pcd_type": "WM",
+    "fep": true
+  },
+  {
+    "hospitalID": 490007,
+    "num_pcdp_days": 42,
+    "avg_days_before_death": 126.35714285714286,
+    "pcd_type": "PM",
+    "fep": false
+  },
+  {
+    "hospitalID": 490024,
+    "num_pcdp_days": 1,
+    "avg_days_before_death": 171.0,
+    "pcd_type": "WM",
+    "fep": false
+  },
+  {
+    "hospitalID": 490032,
+    "num_pcdp_days": 8,
+    "avg_days_before_death": 156.625,
+    "pcd_type": "WM",
+    "fep": false
+  },
+  {
+    "hospitalID": 490057,
+    "num_pcdp_days": 9,
+    "avg_days_before_death": 189.33333333333334,
+    "pcd_type": "WM",
+    "fep": false
+  },
+  {
+    "hospitalID": 490077,
+    "num_pcdp_days": 2,
+    "avg_days_before_death": 191.5,
+    "pcd_type": "WM",
+    "fep": false
+  },
+  {
+    "hospitalID": 490101,
+    "num_pcdp_days": 4,
+    "avg_days_before_death": 184.25,
+    "pcd_type": "PM",
+    "fep": false
+  },
+  {
+    "hospitalID": 490113,
+    "num_pcdp_days": 5,
+    "avg_days_before_death": 152.2,
+    "pcd_type": "PM",
+    "fep": false
+  },
+  {
+    "hospitalID": 500014,
+    "num_pcdp_days": 2,
+    "avg_days_before_death": 166.5,
+    "pcd_type": "PM",
+    "fep": false
+  },
+  {
+    "hospitalID": 500058,
+    "num_pcdp_days": 1,
+    "avg_days_before_death": 165.0,
+    "pcd_type": "PM",
+    "fep": false
+  },
+  {
+    "hospitalID": 500124,
+    "num_pcdp_days": 4,
+    "avg_days_before_death": 197.5,
+    "pcd_type": "WM",
+    "fep": false
+  }
+]

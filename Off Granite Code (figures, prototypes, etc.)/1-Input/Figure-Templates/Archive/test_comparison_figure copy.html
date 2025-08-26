@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Test Comparison</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.4/dist/katex.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/katex@0.16.4/dist/katex.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/katex@0.16.4/dist/contrib/auto-render.min.js"></script>
+    <style>
+
+        {{ page_style }}
+        
+        .container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: white;
+        }
+
+        .content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            grid-template-rows: 1fr 2fr;
+            gap: 0.2in;
+        }
+        
+        .comparison-box {
+            display: flex;
+            flex-direction: column;
+            background-color: white;
+        }
+
+        .comparison-title {
+            font-weight: bold;
+            margin-bottom: 0.15in;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 0.1in 0;
+            font-size: 0.9em;
+        }
+
+        th, td {
+            padding: 0.1in;
+            text-align: center;
+            border: 1px solid #000;
+        }
+
+        th:first-child {
+            text-align: left;
+        }
+
+        .katex {
+            font-size: 1.1em;
+        }
+
+        .test-description {
+            font-size: 0.9em;
+            margin-bottom: 0.1in;
+        }
+
+        .additional-content {
+            font-size: 0.9em;
+            margin-bottom: 0.1in;
+        }
+
+        .table-grid {
+            display: flex;
+            justify-content: space-between;
+            gap: 0.15in;
+            margin-top: 0.1in;
+        }
+        
+        .table-container {
+            flex: 1;
+        }
+        
+        .table-title {
+            font-weight: bold;
+            text-align: center;
+            margin-bottom: 0.05in;
+            font-size: 0.9em;
+        }
+        
+        .small-table {
+            font-size: 0.8em;
+            width: 100%;
+        }
+        
+        .small-table th,
+        .small-table td {
+            padding: 0.05in;
+        }
+
+        /* New styles for additional content sections */
+        .additional-content {
+            width: 100%;
+        }
+
+        .flex-container {
+            display: flex;
+            gap: 0.2in;
+            margin-top: 0.1in;
+        }
+
+        .flex-item {
+            flex: 1;
+            padding: 0.1in;
+        }
+
+        .placeholder-image {
+            width: 100%;
+            aspect-ratio: 1;
+            background-color: #f0f0f0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: 1px dashed #999;
+        }
+
+        .pie-chart-container {
+            width: 2.3in;
+            aspect-ratio: 1;
+        }
+
+        .plot {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+        }
+
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="content">
+            <!-- Box 1: FE vs MW -->
+            <div class="comparison-box">
+                <div class="comparison-title">1. Fisher Exact vs Mann-Whitney Test</div>
+                <div class="test-description">Comparison shows disagreement between tests</div>
+                <table>
+                    <tr>
+                        <th></th>
+                        <th>$\textbf{MW}(+)$</th>
+                        <th>$\textbf{MW}(-)$</th>
+                    </tr>
+                    <tr>
+                        <th>$\textbf{FE}(+)$</th>
+                        <td>{{ fep_mwp }}</td>
+                        <td>{{ fep_mwn }}</td>
+                    </tr>
+                    <tr>
+                        <th>$\textbf{FE}(-)$</th>
+                        <td>{{ fen_mwp }}</td>
+                        <td>{{ fen_mwn }}</td>
+                    </tr>
+                </table>
+                <div class="test-description">Fisher exact test p-value: {{ fevmw_fepval }}</div>
+                <div class="additional-content">
+                    <p>Additional analysis and insights can be added here.</p>
+                </div>
+            </div>
+
+            <!-- Box 2: PCD vs DBDFE -->
+            <div class="comparison-box">
+                <div class="comparison-title">2. PCD vs DBDFE Day Classification</div>
+                <div class="test-description">Strong agreement between tests</div>
+                <table>
+                    <tr>
+                        <th></th>
+                        <th>$\textbf{DBDFE}(+)$</th>
+                        <th>$\textbf{DBDFE}(-)$</th>
+                    </tr>
+                    <tr>
+                        <th>$\textbf{PCD}(+)$</th>
+                        <td>{{ pcdp_dbdfep }}</td>
+                        <td>{{ pcdp_dbdfen }}</td>
+                    </tr>
+                    <tr>
+                        <th>$\textbf{PCD}(-)$</th>
+                        <td>{{ pcdn_dbdfep }}</td>
+                        <td>{{ pcdn_dbdfen }}</td>
+                    </tr>
+                </table>
+                <div class="test-description">Fisher exact test p-value: {{ pcdvdbdfe_fepval }}</div>
+                <div class="additional-content">
+                    <p>Supplementary information can be placed in this section.</p>
+                </div>
+            </div>
+
+            <!-- Box 3: FE vs PCD -->
+            <div class="comparison-box">
+                <div class="comparison-title">3. FE vs PCD+ Classification</div>
+                <div class="test-description">Temporal component impact</div>
+                <table class="expanded-table">
+                    <tr>
+                        <th></th>
+                        <th>$\textbf{PCD}(+)$</th>
+                        <th>$\textbf{PMPCD}(+)$</th>
+                        <th>$\textbf{WMPCD}(+)$</th>
+                        <th>$\textbf{PCD}(-)$</th>
+                    </tr>
+                    <tr>
+                        <th>$\textbf{FE}(+)$</th>
+                        <td>{{ fep_pcdp }}</td>
+                        <td>{{ fep_pmpcdp }}</td>
+                        <td>{{ fep_wmpcdp }}</td>
+                        <td>{{ fep_pcdn }}</td>
+                    </tr>
+                    <tr>
+                        <th>$\textbf{FE}(-)$</th>
+                        <td>{{ fen_pcdp }}</td>
+                        <td>{{ fen_pmpcdp }}</td>
+                        <td>{{ fen_wmpcdp }}</td>
+                        <td>{{ fen_pcdn }}</td>
+                    </tr>
+                </table>
+                <div class="test-description">Fisher exact test p-value: {{ pcdvfe_fepval }}</div>
+                <div class="additional-content">
+                    <p>Further commentary here...</p>
+                    <div class="flex-container">
+                        <div class="flex-item">
+                            <div class="pie-chart-container">
+                                <img class='plot plot-one' src="data:image/png;base64,{{ subfigures.pcd_pie }}" alt="Nested Pie Chart Showing PCD positive days">
+                            </div>
+                        </div>
+                        <div class="flex-item">
+                            <p>The distribution shown in the pie chart demonstrates the relative proportions of positive and negative classifications across different temporal windows. Key observations include:</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Box 4: MW vs PCD Days -->
+            <div class="comparison-box">
+                <div class="comparison-title">4. MW vs PCD Day Thresholds</div>
+                <div class="test-description">Screening effectiveness across thresholds</div>
+                <div class="table-grid">
+                    <div class="table-container">
+                        <div class="table-title">≥ 1 day</div>
+                        <table class="small-table">
+                            <tr>
+                                <th></th>
+                                <th>$\textbf{PCD}(+)$</th>
+                                <th>$\textbf{PCD}(-)$</th>
+                            </tr>
+                            <tr>
+                                <th>$\textbf{MW}(+)$</th>
+                                <td>{{ mwp_1_pcdp }}</td>
+                                <td>{{ mwp_1_pcdn }}</td>
+                            </tr>
+                            <tr>
+                                <th>$\textbf{MW}(-)$</th>
+                                <td>{{ mwn_1_pcdp }}</td>
+                                <td>{{ mwn_1_pcdn }}</td>
+                            </tr>
+                        </table>
+                        <div class="test-description">Fisher exact test p-value: {{ mwv1pcd_fepval }}</div>
+                    </div>
+
+                    <div class="table-container">
+                        <div class="table-title">≥ 10 days</div>
+                        <table class="small-table">
+                            <tr>
+                                <th></th>
+                                <th>$\textbf{PCD}(+)$</th>
+                                <th>$\textbf{PCD}(-)$</th>
+                            </tr>
+                            <tr>
+                                <th>$\textbf{MW}(+)$</th>
+                                <td>{{ mwp_10_pcdp }}</td>
+                                <td>{{ mwp_10_pcdn }}</td>
+                            </tr>
+                            <tr>
+                                <th>$\textbf{MW}(-)$</th>
+                                <td>{{ mwn_10_pcdp }}</td>
+                                <td>{{ mwn_10_pcdn }}</td>
+                            </tr>
+                        </table>
+                        <div class="test-description">Fisher exact test p-value: {{ mwv10pcd_fepval }}</div>
+                    </div>
+
+                    <div class="table-container">
+                        <div class="table-title">≥ 20 days</div>
+                        <table class="small-table">
+                            <tr>
+                                <th></th>
+                                <th>$\textbf{PCD}(+)$</th>
+                                <th>$\textbf{PCD}(-)$</th>
+                            </tr>
+                            <tr>
+                                <th>$\textbf{MW}(+)$</th>
+                                <td>{{ mwp_20_pcdp }}</td>
+                                <td>{{ mwp_20_pcdn }}</td>
+                            </tr>
+                            <tr>
+                                <th>$\textbf{MW}(-)$</th>
+                                <td>{{ mwn_20_pcdp }}</td>
+                                <td>{{ mwn_20_pcdn }}</td>
+                            </tr>
+                        </table>
+                        <div class="test-description">Fisher exact test p-value: {{ mwv20pcd_fepval }}</div>
+                    </div>
+                </div>
+                <div class="additional-content">
+                    <p>This section can contain additional analysis of threshold impacts.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            renderMathInElement(document.body, {
+                delimiters: [
+                    {left: "$$", right: "$$", display: true},
+                    {left: "$", right: "$", display: false}
+                ]
+            });
+        });
+    </script>
+</body>
+</html>

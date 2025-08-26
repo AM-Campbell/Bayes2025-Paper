@@ -1,0 +1,424 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Test Comparison</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.4/dist/katex.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/katex@0.16.4/dist/katex.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/katex@0.16.4/dist/contrib/auto-render.min.js"></script>
+    <style>
+
+        {{ page_style }}
+        
+        .container {
+            display: flex;
+            justify-content: start;
+            align-items: center;
+            background-color: white;
+            padding: 0.2in;
+        }
+
+
+        .content {
+            display: grid;
+            grid-template-columns: 2em 1fr 1fr;
+            grid-template-rows: auto auto auto;
+            gap: 0.1in;
+        }
+        
+        .comparison-box {
+            display: flex;
+            flex-direction: column;
+            background-color: white;
+            padding: 0.05in;
+            border: 1px solid #000;
+        }
+
+        .comparison-title {
+            font-weight: bold;
+            margin-bottom: 0.15in;
+        }
+
+        .vertical-row-label {
+            writing-mode: vertical-rl;
+            rotate: 180deg;
+            text-align: center;
+            padding: 0.1in;
+            font-weight: bold;
+        }
+
+        table {
+            width: fit-content;
+            border-collapse: collapse;
+            margin: 0.1in 0;
+            font-size: 0.9em;
+        }
+
+        th, td {
+            padding: 0.3em;
+            padding-left: 0.5em;
+            padding-right: 0.5em;
+            text-align: center;
+            border: 1px solid #000;
+        }
+
+        th:first-child {
+            text-align: left;
+        }
+
+        .katex {
+            font-size: 1.1em;
+        }
+
+        .test-description {
+            font-size: 0.9em;
+            margin-bottom: 0in;
+        }
+
+        .test-description-label {
+            font-size: 0.9em;
+            padding-left: 10%;
+            padding-right: 10%;
+            text-align: center;
+            height: auto;
+        }
+
+        .additional-content {
+            font-size: 0.9em;
+            margin-bottom: 0.1in;
+        }
+
+        .table-grid {
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 2px;
+            margin-top: 0.1in;
+            margin-bottom: 1em;
+        }
+        
+        .large-table-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            width: 100%;
+
+        }
+        
+        .table-title {
+            font-weight: bold;
+            text-align: center;
+            margin-bottom: 0.05in;
+            margin-top: 0.05in;
+            font-size: 0.9em;
+        }
+
+        
+        .small-table {
+            font-size: 0.8em;
+            width: 100%;
+        }
+
+        .table-container{
+            flex: 1;
+        }
+        
+
+        /* New styles for additional content sections */
+        .additional-content {
+            width: 100%;
+            margin: 0;
+            padding: 0;
+        }
+
+        .flex-container {
+            display: flex;
+            gap: 0.2in;
+            margin-top: 0.1in;
+        }
+
+        .flex-item {
+            flex: 1;
+        }
+
+        .placeholder-image {
+            width: 100%;
+            aspect-ratio: 1;
+            background-color: #f0f0f0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: 1px dashed #999;
+        }
+
+        .plot {
+            height: 2in;
+            object-fit: contain;
+        }
+
+    </style>
+</head>
+<body>
+    <div class="container">
+
+        <div class="content">
+
+
+            <div class="vertical-row-label">Day Level Tests</div>
+
+            <!-- Box 1: FE vs MW -->
+            <div class="comparison-box">
+                <div class="comparison-title">1. Fisher Exact vs Mann-Whitney Test</div>
+                <div class="test-description-label">The count of hospitals in each category Fisher Exact positive or negative and Mann-Whitney U Test positive or negative.</div>
+                <div class="large-table-container">
+                    <table>
+                        <tr>
+                            <th></th>
+                            <th>$\textbf{MW}(+)$</th>
+                            <th>$\textbf{MW}(-)$</th>
+                        </tr>
+                        <tr>
+                            <th>$\textbf{FE}(+)$</th>
+                            <td>{{ fep_mwp }}</td>
+                            <td>{{ fep_mwn }}</td>
+                        </tr>
+                        <tr>
+                            <th>$\textbf{FE}(-)$</th>
+                            <td>{{ fen_mwp }}</td>
+                            <td>{{ fen_mwn }}</td>
+                        </tr>
+                    </table>
+                </div>
+                <div class="test-description">
+                    <p>
+                    There was no strong relationship between the Fisher Exact Test result and the Mann-Whitney U Test result.
+                    The probability of a hospital being $\textbf{FE}(+)$ given that it is $\textbf{MW}(+)$ is {{ '%.2f' % (fep_mwp / (fep_mwp + fen_mwp)) }},
+                    which is only slightly more probable that a hospital being $\textbf{FE}(+)$ given that it is 
+                    $\textbf{MW}(-)$, {{ '%.2f' % (fep_mwn / (fep_mwn + fen_mwn)) }}.
+                    Applying a Fisher exact test to the above contingency table yields a p-value of {{ '%.2f' % fevmw_fepval }}, 
+                    supporting the notion that the two tests are measuring different aspects of the data and are only weakly correlated, if at all.
+                    </p>
+                    </div>
+                {# <div class="additional-content">
+                    <p></p>
+                </div> #}
+            </div>
+
+            <!-- Box 3: PCD vs DBDFE -->
+            <div class="comparison-box">
+                <div class="comparison-title">3. $\mathbf{PCD}$ vs $\mathbf{DBDFE}$ Day Classification</div>
+                <div class="test-description-label">Count of days in each category of $\mathbf{PCD}(+)/(-)$ and $\mathbf{DBDFE}(+)/(-)$.</div>
+                <div class="large-table-container">
+                    <table>
+                        <tr>
+                            <th></th>
+                            <th>$\textbf{DBDFE}(+)$</th>
+                            <th>$\textbf{DBDFE}(-)$</th>
+                        </tr>
+                        <tr>
+                            <th>$\textbf{PCD}(+)$</th>
+                            <td>{{ pcdp_dbdfep }}</td>
+                            <td>{{ pcdp_dbdfen }}</td>
+                        </tr>
+                        <tr>
+                            <th>$\textbf{PCD}(-)$</th>
+                            <td>{{ pcdn_dbdfep }}</td>
+                            <td>{{ pcdn_dbdfen }}</td>
+                        </tr>
+                    </table>
+                </div>
+                <div class="test-description">A day being $\mathbf{DBDFE}(+)$ makes it substantially more likely that that day is 
+                $\mathbf{PCD}(+)$. The Fisher Exact test p-value for the above contingency table of {{ pcdvdbdfe_fepval }} indicates 
+                a strong relationship between the tests. A day being $\textbf{PCD}(+)$ makes it much more likely to be $\textbf{DBDFE}(+)$ 
+                suporting the notion that the two tests are measuring the same construct.</div>
+            </div>
+
+            <div class="vertical-row-label">Hospital Level Tests</div>
+
+            <!-- Box 2: FE vs PCD -->
+            <div class="comparison-box">
+                <div class="comparison-title">2. FE vs PCD Classification</div>
+                <div class="test-description-label"><strong>Fisher Exact Positive or Negative versus at Least One Day PCD Positive, Counts of Hospitals:</strong> The breakdown of $\mathbf{PCD}(+)$ days into $\mathbf{PMPCD}(+)$ and $\mathbf{WMPCD}(+)$ is also shown.</div>
+                <div class="large-table-container">
+                    <table class="expanded-table">
+                        <tr>
+                            <th></th>
+                            <th>$\textbf{PCD}(+)$</th>
+                            <th>$\textbf{PMPCD}(+)$</th>
+                            <th>$\textbf{WMPCD}(+)$</th>
+                            <th>$\textbf{PCD}(-)$</th>
+                        </tr>
+                        <tr>
+                            <th>$\textbf{FE}(+)$</th>
+                            <td>{{ fep_pcdp }}</td>
+                            <td>{{ fep_pmpcdp }}</td>
+                            <td>{{ fep_wmpcdp }}</td>
+                            <td>{{ fep_pcdn }}</td>
+                        </tr>
+                        <tr>
+                            <th>$\textbf{FE}(-)$</th>
+                            <td>{{ fen_pcdp }}</td>
+                            <td>{{ fen_pmpcdp }}</td>
+                            <td>{{ fen_wmpcdp }}</td>
+                            <td>{{ fen_pcdn }}</td>
+                        </tr>
+                    </table>
+                </div>
+                <div class="test-description">{{fen_pcdp}} of the {{fen_pcdp + fep_pcdp + fen_pcdn + fep_pcdn}} hospitals were $\mathbf{FE}(-)$ but had
+                    $\mathbf{PCD}(+)$ days. Evidence that though a Fisher Exact test indicated 
+                    a relationship between a hospital being $\mathbf{PCD}(+)$ and $\mathbf{FE}(+)$ with $p =$ {{ '%.2e' % pcdvfe_fepval }}, 
+                    the $\mathbf{FE}(-)$ hospitals still had $\mathbf{PCD}(+)$ days. This suggests that the Fisher Exact test is not 
+                    sufficient to detect the full range of disparities.
+                    </div>
+                <div class="additional-content">
+                    <div class="flex-container">
+                        <div class="flex-item">
+                            <div class="pie-chart-container">
+                                <img class='plot plot-one' src="data:image/png;base64,{{ subfigures.pcd_pie }}"
+                                    alt="Nested Pie Chart Showing PCD positive days">
+                            </div>
+                        </div>
+                        <div class="flex-item">
+                            <p>
+                            The chart visualizes the central four cells of the contingency table above. 
+                            That is, it shows the distribution of hospitals with $\mathbf{PCD}(+)$ days, 
+                            broken down into those with $\mathbf{PMPCD}(+)$ and $\mathbf{WMPCD}(+)$ days and 
+                            additionally shows the proportion of each of these groups that are $\mathbf{FE}(+)$ 
+                            or $\mathbf{FE}(-)$.
+                            Note that there were no hospitals with both $\mathbf{WMPCD}(+)$ and $\mathbf{PMPCD}(+)$ days.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Box 4: MW vs PCD Days -->
+            <div class="comparison-box">
+                <div class="comparison-title">4. MW vs at least $n$ days PCD positive</div>
+                <div class="test-description-label">Count of hospitals by the number of $\mathbf{PCD}(+)$ days and whether or not they were $\mathbf{MW}(+)$ or $\mathbf{MW}(-)$.</div>
+                <div class="table-grid">
+                    <div class="table-container">
+                        <div class="table-title">At least 1 $\mathbf{PCD}(+)$ Day</div>
+                        <table class="small-table">
+                            <tr>
+                                <th></th>
+                                <th>$\ge 1\ \mathbf{PCD}(+)$</th>
+                                <th>$< 1\ \mathbf{PCD}(+)$</th>
+                            </tr>
+                            <tr>
+                                <th>$\textbf{MW}(+)$</th>
+                                <td>{{ mwp_1_pcdp }}</td>
+                                <td>{{ mwp_1_pcdn }}</td>
+                            </tr>
+                            <tr>
+                                <th>$\textbf{MW}(-)$</th>
+                                <td>{{ mwn_1_pcdp }}</td>
+                                <td>{{ mwn_1_pcdn }}</td>
+                            </tr>
+                        </table>
+                        <div class="test-description">Fisher exact test p-value: {{'%.2e' % mwv1pcd_fepval }}</div>
+                    </div>
+
+                    <div class="table-container">
+                        <div class="table-title">At least 10 $\mathbf{PCD}(+)$ Days</div>
+                        <table class="small-table">
+                            <tr>
+                                <th></th>
+                                <th>$\ge 10\ \mathbf{PCD}(+)$</th>
+                                <th>$< 10\ \mathbf{PCD}(+)$</th>
+                            </tr>
+                            <tr>
+                                <th>$\textbf{MW}(+)$</th>
+                                <td>{{ mwp_10_pcdp }}</td>
+                                <td>{{ mwp_10_pcdn }}</td>
+                            </tr>
+                            <tr>
+                                <th>$\textbf{MW}(-)$</th>
+                                <td>{{ mwn_10_pcdp }}</td>
+                                <td>{{ mwn_10_pcdn }}</td>
+                            </tr>
+                        </table>
+                        <div class="test-description">Fisher exact test p-value: {{'%.2e' % mwv10pcd_fepval }}</div>
+                    </div>
+
+                    <div class="table-container">
+                        <div class="table-title">At least 20 $\mathbf{PCD}(+)$ Days</div>
+                        <table class="small-table">
+                            <tr>
+                                <th></th>
+                                <th>$\ge 20\ \mathbf{PCD}(+)$</th>
+                                <th>$< 20\ \mathbf{PCD}(+)$</th>
+                            </tr>
+                            <tr>
+                                <th>$\textbf{MW}(+)$</th>
+                                <td>{{ mwp_20_pcdp }}</td>
+                                <td>{{ mwp_20_pcdn }}</td>
+                            </tr>
+                            <tr>
+                                <th>$\textbf{MW}(-)$</th>
+                                <td>{{ mwn_20_pcdp }}</td>
+                                <td>{{ mwn_20_pcdn }}</td>
+                            </tr>
+                        </table>
+                        <div class="test-description">Fisher exact test p-value: {{'%.2e' % mwv20pcd_fepval }}</div>
+                    </div>
+
+                    <div class="table-container">
+                        <div class="table-title">At least 30 $\mathbf{PCD}(+)$ Days</div>
+                        <table class="small-table">
+                            <tr>
+                                <th></th>
+                                <th>$\ge 30\ \mathbf{PCD}(+)$</th>
+                                <th>$< 30\ \mathbf{PCD}(+)$</th>
+                            </tr>
+                            <tr>
+                                <th>$\textbf{MW}(+)$</th>
+                                <td>{{ mwp_30_pcdp }}</td>
+                                <td>{{ mwp_30_pcdn }}</td>
+                            </tr>
+                            <tr>
+                                <th>$\textbf{MW}(-)$</th>
+                                <td>{{ mwn_30_pcdp }}</td>
+                                <td>{{ mwn_30_pcdn }}</td>
+                            </tr>
+                        </table>
+                        <div class="test-description">Fisher exact test p-value: {{'%.2e' % mwv30pcd_fepval }}</div>
+                    </div>
+                </div>
+                <div class="additional-content">
+                    <p>
+                        There is a positive association between a hospital having at least $n$ $\mathbf{PCD}(+)$ days and being $\mathbf{MW}(+)$ that
+                        that gets stronger for larger values of $n$. The Fisher exact test p-values for the above contingency tables are all
+                        less than 0.05, indicating a strong relationship between the two tests.
+                    </p>
+                </div>
+            </div>
+
+            <div></div>
+
+            <div><strong>Analyzing the Time Component is Critical:</strong>
+                Though it is important to look for disparities in overall utilization, such an analysis alone will
+                fail to identify disparities in the temporal aspect of care delivery.
+            </div>
+            <div><strong>Temporally Aware Measures Exhibit Convergent Validity:</strong>
+                Time aware measures tend to agree with each other, suggesting that they are capturing similar
+                constructs. However,
+                they vary in what, specifically, they measure as well as their sensitivity, thus the choice of measure
+                should be
+                based on the research question.
+            </div>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            renderMathInElement(document.body, {
+                delimiters: [
+                    {left: "$$", right: "$$", display: true},
+                    {left: "$", right: "$", display: false}
+                ]
+            });
+        });
+    </script>
+</body>
+</html>

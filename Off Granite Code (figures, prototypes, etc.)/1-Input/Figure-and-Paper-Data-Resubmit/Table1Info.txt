@@ -1,0 +1,23 @@
+
+=== DEMOGRAPHICS ===
+Total Patients: 100480
+White Patients: 78125
+POC Patients: 22355
+
+--- AGE ---
+White Patients - Age:
+    Median [Q1 - Q3]: 77.0 [71.0 - 83.0]
+POC Patients - Age:
+    Median [Q1 - Q3]: 75.0 [70.0 - 82.0]
+
+Mann-Whitney U test: U=966232406.0, p=0.0000
+
+--- SEX ---
+White patients (n = 78125):
+    Male: 41125 (52.6%)
+    Female: 37000 (47.4%)
+POC patients (n = 22355):
+    Male: 11537 (51.6%)
+    Female: 10818 (48.4%)
+
+Chi-square test: stat=7.3786, p=0.0066, dof=1

@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Example Hospital Results</title>
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/katex@0.16.4/dist/katex.min.css"
+    />
+    <script src="https://cdn.jsdelivr.net/npm/katex@0.16.4/dist/katex.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/katex@0.16.4/dist/contrib/auto-render.min.js"></script>
+
+    <style>
+      .katex {
+        font-size: 8.3pt;
+      }
+
+      @page {
+        size: 7in 4.5in;
+        margin: 0.0in;
+        orientation: landscape;
+      }
+
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        font-family: Arial, sans-serif;
+        font-size: 8pt;
+        line-height: 1;
+        margin: 0;
+        padding: 0;
+        background-color: lightgray;
+        width: 100vw;
+        height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+
+      .container {
+        position: relative;
+        width: 7in;
+        height: 4.5in;
+        display: flex;
+        flex-direction: column;
+        background-color: white;
+      }
+
+      .horizontal-line {
+          position: absolute;
+          height: 1px;
+          background-color: gray;
+          left: 0;
+          right: 0;
+      }
+      
+      .vertical-line {
+          position: absolute;
+          width: 1px;
+          background-color: gray;
+          top: 0;
+          bottom: 0;
+      }
+
+      .absolute-label {
+        position: absolute;
+        font-size: 10pt;
+        font-weight: bold;
+      }
+
+      .upper-container {
+        display: flex;
+        justify-content: space-between;
+        width: 100%;
+        height: min-content;
+        padding: 0.5em;
+      }
+
+      .test-container {
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+        gap: 0.05in;
+      }
+
+      .lower-container {
+        display: flex;
+        justify-content: flex-start;
+        width: 100%;
+        flex: 1;
+      }
+
+      .graph-container {
+        width: 4.9in;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: start;
+      }
+
+      .graph-image {
+        width: 4.9in;
+        height: auto;
+      }
+
+      .legend-container {
+        flex: 1;
+        padding-right: 0.1in;
+      }
+
+      .lower-legend-container {
+        display: grid;
+        grid-template-columns: 0.2in auto;
+        gap: 0.05in;
+      }
+
+      .color-swatch {
+        width: 100%;
+        height: 100%;
+      }
+
+      .test-title {
+        font-weight: bold;
+      }
+
+      .test-results {
+        display: flex;
+        flex-direction: column;
+        gap: 0.02in;
+        width: 100%;
+        align-items: center;
+      }
+
+      .section-label {
+        font-size: 10pt;
+        font-weight: bold;
+      }
+
+      .below-graph-container {
+        background-color: yellow;
+        width: 100%;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div class="horizontal-line" style="top: 0.72in"></div>
+      <div class="horizontal-line" style="top: 2.555in"></div>
+      <div class="vertical-line" style="height: 0.72in; left:3.4in"></div>
+      <div class="absolute-label" style="left: 0.5em; top:.78in">c.</div>
+      <div class="absolute-label" style="left: 0.5em; top:2.63in">d.</div>
+      <div class="upper-container">
+        <div class="test-container">
+          <div class="test-description">
+            <span class="section-label">a.</span>
+            Fisher Exact ($\textbf{FE}$) Test: Tests if overall hospice
+            utilization rates differ between racial groups
+          </div>
+          <div class="test-results">
+            <span> Hospital 1: $p = 0.077 \ge 0.05$ $\therefore$ $\textbf{FE}(-)$</span>
+            <span> Hospital 2: $p = 0.046 < 0.05$ $\therefore$ $\textbf{FE}(+)$</span>
+          </div>
+        </div>
+        <div class="test-container">
+          <div class="test-description">
+            <span class="section-label">b.</span>
+            Mann-Whitney ($\mathbf{MW}$) U Test: Tests if timing of first hospice day differs
+            between racial groups
+          </div>
+          <div class="test-results">
+            <span> Hospital 1: $p = 0.010 < 0.05$ $\therefore$ $\textbf{MW}(+)$</span>
+            <span> Hospital 2: $p = 0.288 \ge 0.05$ $\therefore$ $\textbf{MW}(-)$</span>
+          </div>
+        </div>
+      </div>
+      <div class="lower-container">
+        <div class="graph-container">
+          <img
+            class="graph-image"
+            src="../../3-Output/GeneratedFigures/combined_hospital_results.jpg"
+            alt="graph"
+          />
+          </div>
+        <div class="legend-container">
+          <div class="lower-legend-container">
+            <div style="height: 0.51in; display: flex; align-items: end"></div>
+            <div></div>
+            <div class="color-swatch" style="background-color: #0072b2"></div>
+            <div>
+              <strong>$\textbf{diffSignal}$:</strong> Difference between
+              fraction of WP and POC receiving hospice
+              by each day before death
+            </div>
+
+            <div class="color-swatch" style="background-color: #f6decc"></div>
+            <div>
+              <strong>95% Credible Interval</strong> 
+              for the $\textbf{diffSignal}$
+            </div>
+
+            <div style="height: 0.54in; display: flex; align-items: end"></div>
+            <div></div>
+
+            <div class="color-swatch" style="background-color: #cc79a7"></div>
+            <div>
+
+              <strong>$\textbf{PMPCD}$:</strong> $p(\textbf{diffSignal}_{j} < -0.05)$ for each day $200-j$ before death
+            </div>
+
+            <div
+              class="color-swatch"
+              style="background-color: #D8D1E5"
+            ></div>
+            <div>
+              <strong>$\textbf{PMPCD}(+)$:</strong> $\textbf{PMPCD} >
+              0.95$
+            </div>
+
+            <div class="color-swatch" style="background-color: #009e73"></div>
+            <div>
+              <strong>$\textbf{WMPCD}$:</strong> $p(\textbf{diffSignal}_{j} > 0.05)$ for each day $200-j$ before death
+            </div>
+
+            <div
+              class="color-swatch"
+              style="background-color: #A3DBD8"
+            ></div>
+            <div>
+              <strong>$\textbf{WMPCD}(+)$:</strong> $\textbf{WMPCD} >
+              0.95$
+            </div>
+
+
+            <div
+              class="color-swatch"
+              style="background-color: #E5F4FB"
+            ></div>
+            <div>
+              <strong>$\textbf{DBDFE}(+)$:</strong> $\textbf{DBDFE} <
+              0.05$
+            </div>
+
+            <div
+              class="color-swatch"
+              style="background-color: #55B5E6"
+            ></div>
+            <div>
+              <strong>$\textbf{DBDFE}$:</strong>  Day-by-day Fisher exact test p-value for each day $200-j$ before death.
+              
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        renderMathInElement(document.body, {
+          delimiters: [
+            { left: "$$", right: "$$", display: true },
+            { left: "$", right: "$", display: false },
+          ],
+        });
+      });
+    </script>
+  </body>
+</html>

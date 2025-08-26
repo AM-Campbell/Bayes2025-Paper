@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Example Hospital Results</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.4/dist/katex.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/katex@0.16.4/dist/katex.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/katex@0.16.4/dist/contrib/auto-render.min.js"></script>
+    <style>
+        {{ page_style }}
+
+        .viz-flex-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            height: 100%;
+            width: 100%;
+        }
+        {% set split = 0.56 %}
+        .left-container {
+            width: {{ split * 100}}%;
+            margin-right: 0.25in;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: start;
+            height: 100%;
+        }
+        .right-container {
+            width: {{ 100 - split*100 }}%;
+            display: grid;
+            grid-template-columns: 0.25in auto;
+            column-gap: 0.15in;
+            row-gap: 0.2in;
+            margin-left: 0.25in;
+        }
+        .grid-item {
+            text-align: center;
+            min-height: fit-content;
+            padding-top: 0.1in;
+        }
+        .grid-item.span2 {
+            grid-column: span 2;
+        }
+
+        .col-heading {
+            height: 0.25in;
+            padding: 0;
+        }
+        .grid-item.variable{
+            text-align: center;
+            display: flex;
+            justify-content: center;
+            align-items: flex-start;
+            font-size: 10pt;
+        }
+        .grid-item.variable-description{
+            text-align: left;
+        }
+
+        .grid-item.description {
+            text-align: left;
+        }
+
+        .test-name {
+            font-weight: bold;
+            text-decoration: underline;
+        }
+
+        .tnh {
+            padding: 0;
+            margin: 0;
+            text-align: right;
+            line-height: 1;
+            vertical-align: top;
+        }
+
+        .plot-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .plot {
+            width: 100%;
+            height: auto;
+            
+        }
+
+        .color-swatch {
+            width: 100%;
+            height: 100%;
+        }
+
+        .two-col-grid-item {
+            grid-column: span 2;
+        }
+
+        .katex {
+            font-size: 1.1em;
+        }
+ 
+
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="viz-flex-container">
+            <div class="left-container">
+
+                <div class="plot-container">
+                    {# <div class="plot-title">Plot One</div> #}
+                    <img class='plot plot-one' src="data:image/png;base64,{{ subfigures.diff_signal }}" alt="Plot One">
+                </div>
+                <div class="plot-container">
+                    {# <div class="plot-title">Plot Two</div> #}
+                    <img class='plot plot-two' src="data:image/png;base64,{{ subfigures.diff_signal_stats_plot }}" alt="Plot Two">
+                </div>
+
+            </div>
+            <div class="right-container">
+                <!-- Headings -->
+                {# <div class="grid-item col-heading"> Test Null Hypothesis </div> #}
+                {# <div class="grid-item col-heading"> Test Description </div> #}
+
+                <div class='two-col-grid-item'>
+                <strong>Results from Hospital {{ hospitalID }}</strong>
+                </div>
+
+                <div class="two-col-grid-item">
+                <strong>Fisher Exact Test:</strong>
+                {# <br>  #}
+                Represents the quality measures approach. The null hypothesis is that the fraction of white patients and patients of color who received hospice care is the same.
+                <em>{{ u_w }} of {{ n_w }} white patients received hospice care ({{ (u_w / n_w * 100) | round(2) }}%) and {{ u_p }} of {{ n_p }} patients of color received hospice care ({{ (u_p / n_p * 100) | round(2) }}%).
+                The Fisher Exact Test p-value is {{ fep }}.</em>
+                </div>
+
+                <div class="two-col-grid-item">
+                <strong>Mann-Whitney U Test:</strong>
+                {# <br> #}
+                Represents a simple comparison that takes into account the timing of the first day of hospice. The null hypothesis is that the first day of hospice for white patients and patients of color have the same mean.
+                <em>The Mann Whitney U Test p-value was {{ mwp }}.</em>
+                </div>
+
+                <div class="color-swatch grid-item" style="background-color: {{ colors.diffSignal }}"></div>
+                <div class="">$\textbf{diffSignal}$: The <strong>diff</strong>erence <strong>Signal</strong>: For a given day $j \in [200]$ the number of white patients who received hospice by day $j$ minus the number of patients of color who received hospice by day $j$. </div>
+
+                <div class="color-swatch grid-item" style="background-color: {{ colors.ci_a() }}"></div>
+                <div><strong>95% Credible Interval for each day of the Difference Signal:</strong> Calculated using a Bayesian estimation of the distribution of each day of the difference signal.</div>
+
+                {# <div class="color-swatch grid-item" style="background-color: {{ colors.pmpcd_a() }}"></div>
+                <div></div> #}
+
+                <div class="color-swatch grid-item" style="background-color: {{ colors.pmpcd }}"></div>
+                <div><strong>$\textbf{PMPCD}$:</strong>
+                    <strong>P</strong>OC <strong>M</strong>ore <strong>P</strong>robability of <strong>C</strong>linically Significant <strong>D</strong>ifference. The probability that the difference between the fraction of white patients and patients of 
+                    color who received hospice by day $j$ is greater than $0.05$ favoring patients of color.
+
+                </div>
+
+                <div class="color-swatch grid-item" style="background-color: {{ colors.pmpcd_a() }}"></div>
+                <div><strong>$\textbf{PMPCD(+)}$: </strong>Days where $\textbf{PMPCD} > 95\%$ </div>
+
+                <div class="color-swatch grid-item" style="background-color: {{ colors.wmpcd }}"></div>
+                <div><strong>$\textbf{WMPCD}$:</strong>
+                    <strong>W</strong>hite <strong>M</strong>ore <strong>P</strong>robability of <strong>C</strong>linically Significant <strong>D</strong>ifference. 
+                </div>
+
+
+                <div class="color-swatch grid-item" style="background-color: {{ colors.dbdfe }}"></div>
+                <div><strong>$\textbf{DBDFE}$:</strong> <strong>D</strong>ay <strong>B</strong>y <strong>D</strong>ay <strong>F</strong>isher <strong>E</strong>xact test p-value series. The p-value of a fisher exact test comparing the number of white patients and patients of color who received hospice by day $j$.
+                </div>
+
+                <div class="color-swatch grid-item" style="background-color: {{ colors.dbdfe_a() }}"></div>
+                <div><strong>$\textbf{DBDFE}(+)$: </strong>Days where $\textbf{DBDFE} < 0.05$.</div>
+
+            </div>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            renderMathInElement(document.body, {
+                delimiters: [
+                    {left: "$$", right: "$$", display: true},
+                    {left: "$", right: "$", display: false}
+                ]
+            });
+        });
+    </script>
+</body>
+</html>

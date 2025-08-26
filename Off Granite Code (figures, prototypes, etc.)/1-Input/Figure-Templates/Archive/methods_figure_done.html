@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Methods Figure</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.4/dist/katex.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/katex@0.16.4/dist/katex.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/katex@0.16.4/dist/contrib/auto-render.min.js"></script>
+    <style>
+        {{ page_style }}
+
+
+        .katex {
+            font-size: 8pt;
+        }
+
+     
+  
+
+        .viz-flex-container {
+            display: grid;
+            grid-template-columns: 2.6in auto;
+            grid-template-rows: auto;
+            height: fit-content;
+            width: 100%;
+        } 
+
+        .left-container {
+            display: grid;
+            grid-template-columns: auto 5.5em;
+            column-gap: 0.01in;
+            row-gap: 0.01in;
+            width: 100%;
+            height: fit-content;
+            border: 0.01in solid black;
+        }
+        .right-container {
+            display: grid;
+            grid-template-columns: 1fr auto auto;
+            column-gap: 0.01in;
+            row-gap: 0.01in;
+            border: 0.01in solid black;
+            height: fit-content;
+            
+        }
+        .grid-item {
+            text-align: center;
+            min-height: fit-content;
+            padding: 0.1em 0.2em ; 
+        }
+        .grid-item.span2 {
+            grid-column: span 2;
+        }
+
+        .col-heading {
+            height: 1.1em;
+            padding: 0;
+            text-justify: baseline;
+        }
+        .grid-item.variable{
+            text-align: center;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .grid-item.variable-description{
+            text-align: left;
+        }
+
+        .grid-item.test-description {
+            text-align: left;
+        }
+
+        .test-name {
+            font-weight: bold;
+            text-decoration: underline;
+        }
+
+        .tnh {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: 0;
+            margin: 0;
+            height: 100%;
+        }
+
+        .grid-item.variable {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+
+        }
+
+        .variable-color {
+            flex-grow: 1;
+            max-height: 100%;
+            width: 100%;
+            margin-top: 3pt;
+        }
+
+        body {
+            font-size: 8pt;
+            background-color: black;
+        }
+
+        .contianer {
+            background-color: black;
+        }
+
+        .left-container {
+            background-color: black;
+        }
+
+        .right-container {
+            background-color: black;
+        }
+        .vis-flex-container {
+            background-color: black;
+        }
+
+        .grid-item {
+            background-color: white;
+        }
+
+        .level {
+            writing-mode: vertical-lr;
+            text-align: center;
+        }
+ 
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="viz-flex-container">
+            <div class="left-container">
+                <div class="grid-item col-heading"> Description </div>
+                <div class="grid-item col-heading"> Variable </div>
+
+                <div class="grid-item variable-description">Number of patients ($w$ = white, $p$ = people of color).</div>
+                <div class="grid-item variable"><span>$n_w$, $n_p$</span></div>
+
+
+                <!-- First Day of Hospice Data X_w and X_p -->
+                <div class="grid-item variable-description">
+                    List containing the first day of hospice for those patients who received hospice care
+                </div>
+                <div class="grid-item variable"><span>$X_w$, $X_p$</span></div>
+
+                <!-- Utilization number "u" -->
+                <div class="grid-item variable-description">
+                    Number of patients who received hospice care. <nobr>($u_w = |X_w|$, $u_p = |X_p|$)</nobr>
+                </div>
+                <div class="grid-item variable"><span>$u_w$, $u_p$</span></div>
+
+                <!-- Utilization Data Matrices W and P -->
+                <div class="grid-item variable-description">
+                   Utilization Data Matrices: Matrices where each row represents patient $i$ and each column represents day $j \in [200]$. The entry $i,j$ is 1 if patient $i$ had received hospice by day $j$.
+                </div>
+                <div class="grid-item variable"><span>$\mathbf{W}_{i,j}$, $\mathbf{P}_{i,j}$</span></div>
+
+                <!-- Difference Signal -->
+                <div class="grid-item variable-description">
+                    The <strong>diff</strong>erence <strong>Signal</strong>: For a given day $j \in [200]$ the number of white patients who received hospice by day $j$ minus the number of patients of color who received hospice by day $j$.
+                </div>
+                {# <div class="grid-item variable">$\textbf{diffSignal}(\mathbf{W}, \mathbf{P})_j$</div> #}
+                <div class="grid-item variable">$\textbf{diffSignal}_j$</div>
+
+
+                <div class="grid-item variable-description">
+                    <strong>W</strong>hite <strong>M</strong>ore / <strong>P</strong>OC <strong>M</strong>ore <strong>P</strong>robability of <strong>C</strong>linically Significant <strong>D</strong>ifference: The probability that the difference between the fraction of white patients and patients of 
+                    color who received hospice by day $j$ is greater than $0.05$ favoring white patients and patients of color respectively.
+                </div>
+                <div class="grid-item variable">
+                    <div>$\textbf{WMPCD}_j,$</div>
+                    <div>$\textbf{PMPCD}_j$</div>
+                </div>
+
+                <div class="grid-item variable-description">
+                    <strong>D</strong>ay <strong>B</strong>y <strong>D</strong>ay <strong>F</strong>isher <strong>E</strong>xact test p-value series. The p-value of a fisher exact test comparing the number of white patients and patients of color who received hospice by day $j$. Defined for each $j \in [200]$.
+                </div>
+                <div class="grid-item variable">
+                    <div>$\textbf{DBDFE}_j$</div>
+                </div>
+
+
+            </div>
+            <div class="right-container">
+                <!-- Headings -->
+                <div class="grid-item col-heading"> Test Null Hypothesis </div>
+                <div class="grid-item col-heading"> Test Description </div>
+                <div class="grid-item col-heading"> Lvl. </div>
+
+                <!-- Fisher Exact Test -->
+                <div class="grid-item tnh">
+                    <!-- <div class="test-name">Fisher Exact Test</div> -->
+                        <span>$$\frac{u_w}{n_w} = \frac{u_p}{n_p}$$</span>
+                </div>
+                <div class="grid-item test-description">
+                    <em>Fisher Exact Test</em> ($\textbf{FE}$) <br> Represents the quality measures approach. The null hypothesis is that the fraction of white patients and patients of color who received hospice care is the same. Positive if $p < 0.05$, denoted $\textbf{FE}(+)$, otherwise $\textbf{FE}(-)$.
+                </div>
+                <div class="grid-item level">Hospital</div>
+
+                <!-- Mann-Whitney U Test -->
+                <div class="grid-item tnh">
+                    <!-- <div class="test-name">Mann-Whitney U Test</div> -->
+                        <span>$X_w$ and $X_p$ have the same mean.</span>
+                </div>
+                <div class="grid-item test-description">
+                    <em>Mann-Whitney U Test</em> ($\textbf{MW}$) <br> Represents a simple comparison that takes into account the timing of the first day of hospice. The null hypothesis is that the first day of hospice for white patients and patients of color have the same mean.
+                    Positive if $p < 0.05$, denoted $\textbf{MW}(+)$, otherwise $\textbf{MW}(-)$.
+                </div>
+                <div class="grid-item level">Hospital</div>
+                
+                
+
+                <!-- PMPCD_j(+/-) -->
+                <div class="grid-item tnh">
+                    <!-- <div class="test-name">Test for POC More Probable Clinically Significant Difference</div> -->
+                        <span>For a given day $j \in [200]$:
+                        $\textbf{PMPCD}_j < 0.95$</span>
+                </div>
+                <div class="grid-item test-description" >
+                    <em>Test for Probable Clinically Significant Difference (with Patients of Color receiving More hospice)</em> 
+                    <br>
+                    Positive if $\textbf{PMPCD}_j \ge 0.95$, denoted $\textbf{PMPCD}_j(+)$. $\textbf{PMPCD}_j(-)$ otherwise.
+                </div>
+                <div class="grid-item level">Day</div>
+
+                <!-- WMPCD_j(+/-) -->
+                <div class="grid-item tnh">
+                        <span>For a given day $j \in [200]$:
+                        $\textbf{WMPCD}_j < 0.95$</span>
+                </div>
+                <div class="grid-item test-description"  >
+                    <em>Test for Probable Clinically Significant Difference (with White patients receiving More hospice)</em> 
+                    <br>
+                    Positive if $\textbf{WMPCD}_j \ge 0.95$, denoted $\textbf{WMPCD}_j(+)$. $\textbf{WMPCD}_j(-)$ otherwise.
+                </div>
+                <div class="grid-item level">Day</div>
+
+                <!-- PCD_j(+/-) -->
+                <div class="grid-item tnh">
+                    <span>For a given day $j \in [200]$, neither $\textbf{PMPCD}_j$ nor $\textbf{WMPCD}_j$ are greater than $0.95$.</span>
+                </div>
+                <div class="grid-item test-description">
+                    <em>Test for Probable Clinically Significant Difference</em>
+                    <br>
+                    Positive if either $\textbf{PMPCD}_j(+)$ or $\textbf{WMPCD}_j(+)$.
+                    Denoted $\textbf{PCD}_j(+)$ if positive and $\textbf{PCD}_j(-)$ otherwise.
+                </div>
+                <div class="grid-item level">Day</div>
+
+                <!-- DBDFE_j(+/-) -->
+                <div class="grid-item tnh">
+                    <!-- <div class="test-name">Day By Day Fisher Exact Test</div> -->
+                        <span>For a given day $j \in [200]$:
+                        $$\frac{\sum_{i=1}^{n_w}{\mathbf{W}_{i,j}}}{n_w} = \frac{\sum_{i=1}^{n_p}{\mathbf{P}_{i,j}}}{n_p}$$ </span>
+
+                </div>
+                <div class="grid-item test-description">
+                    <em>Day By Day Fisher Exact Test</em> 
+                    <br>
+                    Positive for a given day $j$ if $\textbf{DBDFE}_j < 0.05$, denoted $\textbf{DBDFE}_j(+)$. $\textbf{DBDFE}_j(-)$ otherwise.
+                </div>
+                <div class="grid-item level">Day</div>
+
+            </div>
+        </div>
+    </div> 
+
+    
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            renderMathInElement(document.body, {
+                delimiters: [
+                    {left: "$$", right: "$$", display: true},
+                    {left: "$", right: "$", display: false}
+                ]
+            });
+        });
+    </script>
+</body>
+</html>

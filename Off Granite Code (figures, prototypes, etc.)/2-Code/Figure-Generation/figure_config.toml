@@ -1,0 +1,90 @@
+# Global settings
+output_dir = "3-Output/GeneratedFigures"
+template_dir = "1-Input/Figure-Templates"
+data_path = "1-Input/Figure-and-Paper-Data"
+# data_path = "3-Output/Test-Data"
+
+[default_page_settings]
+width = "11in"
+height = "8.5in"
+margin = "0in"  # Changed to 0 since we handle padding in the container
+orientation = "landscape"
+dpi = 300
+katex_wait_time = 1000
+content_width = "11in"
+content_height = "8.5in"
+background_color = "black"
+content_background_color = "white"
+
+# Figure-specific configurations
+[figures.methods_figure]
+template = "methods_figure.html"
+# data = "methods_data.json"
+output_name = "methods_figure.pdf"
+content_width="7in"
+content_height="5.95in"
+width = "7in"
+height = "5.95in"
+
+
+[figures.example_results]
+template = "example-results-1.html"
+output_name = "example_results.pdf"
+content_width = "7in"
+content_height = "5in"
+width = "7in"
+height = "5in"
+
+
+
+# [figures.example_hospital_figure]
+# template = "example_hospital_figure.html"
+# data = ["example_hospital_results.json"]
+# output_name = "example_hospital_figure.pdf"
+# content_width = "7in"
+# content_height = "5in"
+# # subfigures = ["diff_signal", "combined_plot", "diff_signal_stats_plot"]
+
+# [subfigures.combined_plot]
+# function = "combined_plot"
+# figsize = [6, 4]
+
+# [subfigures.diff_signal]
+# function = "diff_signal"
+# figsize = [5, 3.5]
+
+# [subfigures.diff_signal_stats_plot]
+# function = "diff_signal_stats_plot"
+# figsize = [6, 4]
+
+
+
+# [figures.test_comparison_figure]
+# template = "test_comparison_figure.html"
+# data = "test_comparison.json"
+# output_name = "test_comparison_figure.pdf"
+# subfigures = ["pcd_pie"]
+
+# [subfigures.pcd_pie]
+# function = "pcd_pie"
+# figsize = [4, 6]
+
+# # Demo Figure (not used in the paper)
+# [figures.positive_day_histogram]
+# template = "positive_day_histogram.html"
+# data = "observations.json"
+# output_name = "positive_day_histogram.pdf"
+# orientation = "landscape"
+# subfigures = ["pcd_hist"]
+# height = "7in"
+# content_height = "7in"
+# width = "9in"
+# content_width = "9in"
+
+# [subfigures.pcd_hist]
+# function = "pcd_hist"
+# figsize = [12, 8]
+
+# [subfigures.plot_two]
+# function = "plot_two"
+# figsize = [6, 4]

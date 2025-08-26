@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Methods Figure</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.4/dist/katex.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/katex@0.16.4/dist/katex.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/katex@0.16.4/dist/contrib/auto-render.min.js"></script>
+    <style>
+        {{ page_style }}
+
+
+        .katex {
+            font-size: 8.3pt;
+        }
+
+        .table-container {
+            display: grid;
+            grid-template-columns: auto auto 1.23in auto auto;
+            grid-template-rows: repeat(13, auto);
+            height: fit-content;
+            width: 100%;
+            grid-gap: 1px;
+            border: 1px solid lightgray;
+        } 
+
+
+        .grid-item {
+            min-height: fit-content;
+            height: 100%;
+            padding: 0.1em 0.2em ; 
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+
+        }
+
+        .col-heading {
+            text-align: center;
+            height: 100%;
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .grid-item.variable{
+            text-align: center;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .grid-item.variable-description{
+            text-align: left;
+        }
+
+        .grid-item.test-description {
+            text-align: left;
+        }
+
+        .test-name {
+            font-weight: bold;
+            text-decoration: underline;
+        }
+
+        .tnh {
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: 0;
+            margin: 0;
+            height: 100%;
+        }
+
+        .grid-item.variable {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+
+        }
+
+        .variable-color {
+            flex-grow: 1;
+            max-height: 100%;
+            width: 100%;
+            margin-top: 3pt;
+        }
+
+        body {
+            font-size: 8.4pt;
+        }
+
+        .table-container {
+            background-color: lightgray;
+        }
+
+        .grid-item {
+            background-color: white;
+        }
+
+        .level {
+            writing-mode: vertical-lr;
+            text-align: center;
+        }
+ 
+    </style>
+</head>
+<body>
+        <div class="container">
+        <div class="table-container">
+                <div class="grid-item col-heading">Variable Description</div>
+                <div class="grid-item col-heading">Variable</div>
+                <div class="grid-item col-heading">Test Null Hypothesis</div>
+                <div class="grid-item col-heading">Test Description</div>
+                <div class="grid-item col-heading">Level</div>
+
+                <div class="grid-item variable-description">
+                <span>Total number of white patients $(w)$ and patients of color $(p)$</span>
+                </div>
+                <div class="grid-item variable"><span>$n_w$, $n_p$</span></div>
+
+
+                <div class="grid-item variable-description">
+                <span>
+                    Number of patients who received hospice care $(u_w = \dim(X_w)$, $u_p = \dim(X_p))$
+</span>
+                </div>
+                <div class="grid-item variable"><span>$u_w$, $u_p$</span></div>
+
+                <div class="grid-item variable-description">
+                <span>
+                    Day indices of first hospice utilization for patients who received hospice care
+</span>
+                </div>
+                <div class="grid-item variable"><span>$X_w$, $X_p$</span></div>
+
+                <div class="grid-item variable-description">
+                <span>
+                    Number of days spent in hospice by each patient. 0 if patient did not receive hospice. ($\dim(D_w) = n_w$, $\dim(D_p) = n_p$)
+</span>
+                </div>
+                <div class="grid-item variable"><span>$D_w$, $D_p$</span></div>
+
+                <!-- <div class="grid-item variable-description">
+                   Binary matrices where entry $(i,j)$ is 1 if patient $i$ received hospice by day $200 - j$ before death, 0 otherwise
+                </div>
+                <div class="grid-item variable"><span>$\mathbf{W}_{i,j}$, $\mathbf{P}_{i,j}$</span></div>
+                -->
+
+                <div class="grid-item variable-description" style="grid-row: 6/9; grid-column:1/2;">
+                <span>
+                    Difference between fraction of white patients and patients of color receiving hospice by day $200 - j$ before death
+</span>
+                </div>
+                <div class="grid-item variable" style="grid-row: 6/9; grid-column:2/3;">
+                <span style="color: {{colors.diffSignal}}">$\textbf{diffSignal}_j$ </span></div>
+
+                <div class="grid-item variable-description" style="grid-row: 9/11; grid-column:1/2;">
+                <span>
+                    Probability that difference in hospice utilization by day $200 - j$ before death exceeds 5 percentage points favoring white patients 
+                    $($<span style="color: {{colors.wmpcd}};">$\textbf{WMPCD}$</span>$)$ or patients of color $($<span style="color: {{ colors.pmpcd }}">$\textbf{PMPCD}$</span>$)$
+                </span>
+                </div>
+                <div class="grid-item variable" style="grid-row: 9/11; grid-column:2/3;">
+                
+                    <div style="color: {{ colors.wmpcd }}">$\textbf{WMPCD}_j$</div>
+                    <div style="color: {{ colors.pmpcd }}">$\textbf{PMPCD}_j$</div>
+                </div>
+
+
+
+                <div class="grid-item tnh" style="grid-row: 2/4; grid-column: 3/4;">
+                    <span>$$\frac{u_w}{n_w} = \frac{u_p}{n_p}$$</span>
+                </div>
+                <div class="grid-item test-description" style="grid-row: 2/4; grid-column: 4/5;">
+                <span>
+                    <strong>Fisher Exact Test</strong> $(\textbf{FE})$ <br> Tests equality of overall hospice utilization rates. Positive $(\textbf{FE}(+))$ if $p < 0.05$, negative $(\textbf{FE}(-))$ otherwise.
+</span>
+                </div>
+                <div class="grid-item level" style="grid-row: 2/4; grid-column: 5/6;">Hospital</div>
+
+                <div class="grid-item tnh" style="grid-row: 4/5; grid-column: 3/4;">
+                    <span>$X_w$ and $X_p$ have equal central tendency</span>
+                </div>
+                <div class="grid-item test-description" style="grid-row: 4/5; grid-column: 4/5;">
+                <span>
+                    <strong>First Day of Hospice Test</strong> $(\textbf{FDH})$ <br> Compares timing of first hospice day between groups, for pt. who received hospice, using a Mann-Whitney U Test. Positive $(\textbf{FDH}(+))$ if $p < 0.05$, negative $(\textbf{FDH}(-))$ otherwise.
+</span>
+
+                </div>
+                <div class="grid-item level" style="grid-row: 4/5; grid-column: 5/6;">Hospital</div>
+
+                <div class="grid-item tnh" style="grid-row: 5/6; grid-column: 3/4;">
+                    <span>$D_w$ and $D_p$ have equal central tendency</span>
+                </div>
+                <div class="grid-item test-description" style="grid-row: 5/6; grid-column: 4/5;">
+                <span>
+                    <strong>Number of Hospice Days Test</strong> $(\textbf{NHD})$ <br> Compares number of days spent in hospice by each group using a Mann-Whitney U Test. Positive $(\textbf{NHD}(+))$ if $p < 0.05$, negative $(\textbf{NHD}(-))$ otherwise.
+</span>
+
+                </div>
+                <div class="grid-item level" style="grid-row: 5/6; grid-column: 5/6;">Hospital</div>
+
+                <div class="grid-item tnh" style="grid-row: 6/8; grid-column: 3/4;">
+                    <span>For day $200 - j$ before death: <span style="color: {{ colors.pmpcd }}">$\textbf{PMPCD}_j$</span>$ < 0.95$</span>
+                </div>
+                <div class="grid-item test-description" style="grid-row: 6/8; grid-column: 4/5;">
+                <span>
+                    <strong>POC More Probable Clinically Significant Difference</strong><br>
+                    Day $200 - j$ before death is <span style="color: {{ colors.pmpcd }}">$\textbf{PMPCD}(+)$</span> if <span style="color: {{ colors.pmpcd }}">$\textbf{PMPCD}_j$</span>$ \geq 0.95$, indicating high probability patients of color received meaningfully more hospice
+</span>
+                </div>
+                <div class="grid-item level" style="grid-row: 6/8; grid-column: 5/6;">Day</div>
+
+                <div class="grid-item tnh" style="grid-row: 8/10; grid-column: 3/4;">
+                    <span>For day $200 - j$ before death: <span style="color: {{colors.wmpcd}}">$\textbf{WMPCD}_j$</span>$ < 0.95$</span>
+                </div>
+                <div class="grid-item test-description" style="grid-row: 8/10; grid-column: 4/5;">
+                <span>
+                    <strong>White More Probable Clinically Significant Difference</strong><br>
+                    Day $200 - j$ before death is <span style="color: {{colors.wmpcd}}">$\textbf{WMPCD}(+)$</span> if <span style="color: {{colors.wmpcd}};">$\textbf{WMPCD}_j$</span> $\geq 0.95$, indicating high probability white patients received meaningfully more hospice
+</span>
+                </div>
+                <div class="grid-item level" style="grid-row: 8/10; grid-column: 5/6">Day</div>
+
+                <div class="grid-item tnh" style="grid-row: 10/11; grid-column: 3/4;">
+                    <span>For day $200 - j$ before death: both <span style="color: {{ colors.pmpcd }}">$\textbf{PMPCD}_j$</span>$ < 0.95$ and <span style="color:{{colors.wmpcd}}">$\textbf{WMPCD}_j$</span>$< 0.95$</span>
+                </div>
+                <div class="grid-item test-description" style="grid-row: 10/11; grid-column: 4/5;">
+                <span>
+                    <strong>Probable Clinically Significant Difference</strong><br>
+                    Day $200 - j$ before death is $\textbf{PCD}(+)$ if either <span style="color: {{ colors.pmpcd }}">$\textbf{PMPCD}(+)$</span> or <span style="color:{{colors.wmpcd}}">$\textbf{WMPCD}(+)$</span>, indicating clinically significant disparity
+
+                </span>
+                </div>
+                <div class="grid-item level" style="grid-row: 10/11; grid-column: 5/6;">Day</div>
+
+
+
+
+                <div class="grid-item variable-description" style="grid-row: 11/12; grid-column:1/2;">
+                <span>
+                Entry $(i,j)$ is 1 if patient $i$ received hospice by day $200 - j$ before death, 0 otherwise
+                </span>
+                </div>
+                <div class="grid-item variable" style="grid-row: 11/12; grid-column:2/3;">
+
+                <div class="grid-item variable"><span>$\mathbf{W}_{i,j}$, $\mathbf{P}_{i,j}$</span></div>
+                </div>
+
+                <div class="grid-item variable-description" style="grid-row: 12/13; grid-column:1/2;">
+                <span>Fisher exact test p-value comparing hospice utilization between groups by day $200 - j$ before death</span>
+                </div>
+                <div class="grid-item variable" style="grid-row: 12/13; grid-column:2/3;">
+                <span style="color: {{colors.dbdfe}}">$\textbf{DBDFE}_j$</span>
+                </div>
+                <div class="grid-item tnh" style="grid-row: 11/13; grid-column: 3/4;">
+                     <span>For a given $j \in [200]$:
+                        $$\frac{\sum_{i=1}^{n_w}{\mathbf{W}_{i,j}}}{n_w} = \frac{\sum_{i=1}^{n_p}{\mathbf{P}_{i,j}}}{n_p}$$ </span>
+                </div>
+                <div class="grid-item test-description" style="grid-row: 11/13; grid-column: 4/5;">
+                <span>
+                <strong>Day By Day Fisher Exact Test</strong> 
+                    <br>
+                    Day $200 - j$ before death is 
+                    <span style="color: {{ colors.dbdfe }}">$\textbf{DBDFE}(+)$</span> 
+                    if <span style="color: {{ colors.dbdfe }}">$\textbf{DBDFE}_j$</span> $< 0.05$
+                
+                </span>
+                </div>
+                <div class="grid-item level" style="grid-row: 11/13; grid-column: 5/6;">Day</div>
+
+            </div>
+        </div>
+    </div>
+
+    
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            renderMathInElement(document.body, {
+                delimiters: [
+                    {left: "$$", right: "$$", display: true},
+                    {left: "$", right: "$", display: false}
+                ]
+            });
+        });
+    </script>
+</body>
+</html>

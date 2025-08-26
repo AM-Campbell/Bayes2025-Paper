@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simple Example</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.4/dist/katex.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/katex@0.16.4/dist/katex.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/katex@0.16.4/dist/contrib/auto-render.min.js"></script>
+    <style>
+        {{ page_style }}
+
+        .content {
+            width: 100%;
+            height: 100%;
+        }
+
+        .plot-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .plot-title {
+            font-weight: bold;
+            margin-bottom: 0.2in;
+        }
+
+        .math-example {
+            margin: 0.5in 0;
+            text-align: center;
+        }
+
+        .plot {
+            width: 100%;
+            height: auto;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="content">
+                <div class="plot-container">
+                    {# <div class="plot-title">Plot One</div> #}
+                    <img class='plot plot-one' src="data:image/png;base64,{{ subfigures.pcd_hist }}" alt="Histogram">
+                </div>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            renderMathInElement(document.body, {
+                delimiters: [
+                    {left: "$$", right: "$$", display: true},
+                    {left: "$", right: "$", display: false}
+                ],
+                throwOnError: false
+            });
+        });
+    </script>
+</body>
+</html>
